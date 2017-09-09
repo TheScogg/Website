@@ -1,0 +1,49 @@
+doctype html
+html(lang='en')
+    head
+    meta(charset='utf-8')
+    title James Scoggins
+    meta(name='description', content='My Portfolio')
+    meta(name='author', content='James Scoggins')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+
+    link(href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow', rel='stylesheet')
+
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
+    
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.2.1.js', integrity='sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
+    link(rel='stylesheet', href='./stylesheets/style.css')
+    //if lt IE 9
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js')
+
+    body
+        // navigation
+        nav.navbar.navbar-toggleable-md.navbar-inverse.bg-primary.sticky-top
+            button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            a.navbar-brand(href='#')
+                img.d-inline-block.align-top(src='/assets/brand/bootstrap-solid.svg', width='30', height='30', alt='')
+                |   James C. Scoggins
+            #navbarSupportedContent.collapse.navbar-collapse
+                ul.navbar-nav.ml-auto
+                    li#introLink.nav-item.active
+                        a.nav-link(href='#')
+                            i.fa.fa-user-circle-o(aria-hidden='true')
+                            |  ABOUT 
+                            span.sr-only (current)
+                    li#portfolioLink.nav-item
+                        a.nav-link(href='#')
+                            i.fa.fa-folder-open(aria-hidden='true')
+                            |  PORTFOLIO
+                    li#contactLink.nav-item
+                        a.nav-link(href='#')
+                            i.fa.fa-envelope-o(aria-hidden='true')
+                            |  CONTACT
+
+
+
+        block content

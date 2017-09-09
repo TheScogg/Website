@@ -1,0 +1,115 @@
+body { 
+  /* Override default Bootstrap white background */
+  background: #212121 !important;}
+
+.navbar {
+  background-color: #000000    !important;
+  border-bottom: 1px dotted white;
+}
+
+.row .row {
+  padding-top: 10px;
+}
+
+#intro {
+  background-image: url(../images/greyBG.jpg);
+  background-color: #393939    ;
+  color: white;
+  border-left: 1px solid #FFFFFF;
+  border-right: 1px solid #FFFFFF;
+  border-bottom: 1px solid white;
+}
+
+#myPic {
+  height: 300px;
+  border-radius: 50%;
+  margin: 50px 0 50px 0;
+  border: 2px solid grey;
+}
+
+#portfolio {
+  background-color: rgb(189, 174, 174);
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+  border-bottom: 1px solid white;
+}
+
+#contact {
+  background-color: rgb(152, 144, 144);
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+  border-bottom: 1px solid white;
+  padding-bottom: 20px;
+}
+
+#footer-top {
+  background-color: #313131;
+  width: 100%;
+  color: white;
+}
+
+#footer-top .fa {
+  color: white;
+  margin: 0 10px 0 10px;
+}
+
+#footer-top .fa:hover{
+  margin: 0 10px 0 10px;
+  font-size: 4em;
+}
+
+#footer-bottom {
+  background-color: black;
+  color: white;
+  padding-top: 10px;
+}
+
+.social-button {
+  width: 160px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+ul {
+  padding-left: 0px;
+}
+
+li {
+  list-style: none;
+  display: inline;
+}
+
+hr {
+  color: #ff3d00;
+}
+
+.heading {
+  margin-top: 20px;
+}
+
+.thumbnail{ 
+  float: left;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover; 
+  -moz-background-size: cover; 
+  -o-background-size: cover; 
+  background-size: cover;
+  /* position: relative;  */
+  overflow: hidden; 
+  text-align: center;
+  /* margin: 20px; */
+  padding: 0;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin: 15px;
+  }
+
+.thumbnailOverlay {
+  height: 300px; 
+  background:rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  color: white;
+  justify-content: center;
+}
+

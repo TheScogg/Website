@@ -1,0 +1,99 @@
+extends navigation
+
+block content
+  //- h1= title
+  //- p Welcome to #{title}
+
+    // BODY
+  .container-fluid
+    // INTRO WITH PICTURE
+    .row
+      #intro.col-md-10.mx-auto
+        .row(style='padding-top:0;')
+          .col-md-8.my-auto.text-center
+            h1.display-4(style='color: #ff3d00;') Aspiring Web Developer
+            p.h2
+              | Background in Print 
+              br
+              | & Graphic Design
+            hr.my-4
+            h4(style="font-family: 'PT Sans Narrow', sans-serif;")
+              | Dependable • Driven • Determined
+          .col-md-4
+            img#myPic.img-fluid.mx-auto.d-block(src='./images/me.jpg', alt='My Photo')
+
+    // PORTFOLIO
+    .row
+      #portfolio.col-md-10.mx-auto
+        .row
+          .col-md-12.text-center
+            div
+              h1
+                em My Project Portfolio
+          // LIFELOGS LINK
+          .col-md-6.col-10.thumbnail.mx-auto(style='background-image:url(../images/lifelogs.jpg);')
+            .col-md-12.thumbnailOverlay.my-auto
+              h1.display-4 lifelogs.com
+              p.lead
+                | Log your day to day activities to discover what makes you happy.
+              a.btn.btn-success.active(href='http://lifelogs.herokuapp.com', role='button', aria-pressed='true') See More!
+          // DRUM KIT
+          .col-md-5.col-10.thumbnail.mx-auto(style='background-image:url(../images/drumkit/Concert-Audience.jpg);')
+            .col-md-12.thumbnailOverlay.my-auto
+              h1.display-4 Drum Kit
+              p.lead
+                | Make music without ever leaving the comfort of your bed or computer chair!
+              a.btn.btn-success.active(href='/drumkit', role='button', aria-pressed='true') See More!
+    
+    // CONTACT ME
+    .row
+      #contact.col-md-10.mx-auto
+        .row.contactRow
+          //
+            <div class="col-md-12 text-center heading">
+            <div><h1><em>Contact Me</em></h1></div>
+            </div>
+          .col-md-6.my-auto
+              h1.display-4 Want to get in touch with me? 
+              h4 Please feel out the form, and I will respond ASAP.
+          .col-md-6
+            form(action='mailto:thescogg@gmail.com', method='post', enctype='text/plain')
+              .form-group
+                label(for='InputName') Name
+                input#InputName.form-control(type='text', aria-describedby='emailHelp', placeholder='Enter name')
+              .form-group
+                label(for='InputEmail') Email address
+                input#InputEmail.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email')
+              .form-group
+                label(for='InputPhone') Phone number
+                input#InputEmail.form-control(type='text', aria-describedby='emailHelp', placeholder='Enter phone number')
+              .form-group
+                label(for='InputMessage') Your Message...
+                textarea#InputMessage.form-control(rows='3')
+              button.btn.btn-primary(type='submit') Submit
+    // FOOTER
+    footer
+      .row
+        #footer-top.col-md-12.mx-auto
+          .row
+            //- .col-md-6.mx-auto.my-auto
+            //-   p.h2.text-center About This Page
+            //-   p.font-weight-bold.text-center Made with love by James Scoggins
+            //-   p
+            .col-md-6.mx-auto.my-auto
+              p.h2.text-center Around the World
+              ul.text-center
+                li
+                  a(href='https://www.linkedin.com/in/thescogg')
+                    i.fa.fa-3x.fa-linkedin-square(aria-hidden='true')
+                li
+                  a(href='https://github.com/TheScogg')
+                    i.fa.fa-3x.fa-github-square(aria-hidden='true')
+                li
+                  a(href='mailto:thescogg@gmail.com')
+                    i.fa.fa-3x.fa-envelope-square(aria-hidden='true')
+        #footer-bottom.col-md-12.mx-auto
+          p.font-weight-bold.text-center TheScogg.com © 2017 All Rights Reserved
+          p
+  script(src='javascripts/scripts.js')
+

@@ -1,0 +1,5 @@
+// Think about making a website more like a computer interface.
+    Take something like the tabs at the top in VS Code
+    what about clicking on those and an overlay window pops up, and the app is in there
+
+Fix the menu ||| thing on the left. why isn't it expanding? did it expand on my original version? check pug indentation

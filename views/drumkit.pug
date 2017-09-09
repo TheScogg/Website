@@ -1,0 +1,89 @@
+html(lang='en')
+  head
+    title Drum Kit
+    // META TAGS
+    meta(name='description', content='Drum Kit')
+    meta(name='author', content='James Scoggins')
+    meta(name='keywords', content='drum kit, synth, music')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    // BOOTSTRAP 4
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M', crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
+    // CUSTOM CSS
+    link(rel='stylesheet', href='stylesheets/drumkit/style.css')
+  body
+    // KEYS
+    .container-fluid
+      .row
+        .col-md-10.col-12.mx-auto.keyHolder
+          .keys.text-center
+            .key(data-key='65')
+              kbd A
+              span.sound BOOM
+            .key(data-key='83')
+              kbd S
+              span.sound CLAP
+            .key(data-key='68')
+              kbd D
+              span.sound HIGH HAT
+            .key(data-key='70')
+              kbd F
+              span.sound KICK
+            .key(data-key='71')
+              kbd G
+              span.sound OPEN HAT
+            .key(data-key='72')
+              kbd H
+              span.sound RIDE
+            .key(data-key='74')
+              kbd J
+              span.sound SNARE
+            .key(data-key='75')
+              kbd K
+              span.sound TINK
+            .key(data-key='76')
+              kbd L
+              span.sound TOM
+    // AUDIO
+    audio(data-key='65', src='sounds/drumkit/boom.wav')
+    audio(data-key='83', src='sounds/drumkit/clap.wav')
+    audio(data-key='68', src='sounds/drumkit/hihat.wav')
+    audio(data-key='70', src='sounds/drumkit/kick.wav')
+    audio(data-key='71', src='sounds/drumkit/openhat.wav')
+    audio(data-key='72', src='sounds/drumkit/ride.wav')
+    audio(data-key='74', src='sounds/drumkit/snare.wav')
+    audio(data-key='75', src='sounds/drumkit/tink.wav')
+    audio(data-key='76', src='sounds/drumkit/tom.wav')
+
+    // JAVASCRIPT
+    script.
+      function playSound(e) {
+      var audio;
+      var key;
+      if (e.type == "keydown") {
+      audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+      key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+      } else if (e.type == "touchstart") {
+      audio = document.querySelector(`audio[data-key="${e.target.parentNode.getAttribute("data-key")}"]`);
+      key = (e.target.parentNode);
+      }
+      if (!audio) {return;}
+      key.classList.add('playing');
+      audio.currentTime = 0;
+      audio.play();
+      }
+      function playSoundTouch(e) {
+      const key = (e.target.parentNode.getAttribute('data-key'));
+      console.log(key);
+      }
+      function removeTransition(e) {
+      // console.log(e);
+      if (e.propertyName !== 'transform') return;
+      e.target.classList.remove('playing');
+      }
+      const keys = (document.querySelectorAll('.key'));
+      keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+      keys.forEach(key => key.addEventListener('touchstart', playSound));
+      window.addEventListener('keydown', playSound);
