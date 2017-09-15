@@ -1,0 +1,43 @@
+html(lang='en')
+  head
+    title Clock
+    // META TAGS
+    meta(name='description', content='Drum Kit')
+    meta(name='author', content='James Scoggins')
+    meta(name='keywords', content='drum kit, synth, music')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    // BOOTSTRAP 4
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M', crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
+    // CUSTOM CSS
+    link(rel='stylesheet', href='stylesheets/clock/style.css')
+  body
+    // KEYS
+    .container-fluid
+        .row
+            .col-md-12
+                .clock
+                    .clock-face
+                        .hand.hour-hand
+                        .hand.minute-hand
+                        .hand.second-hand
+    script.
+      const secondHand = document.querySelector('.second-hand');
+      const minuteHand = document.querySelector('.minute-hand');
+      
+      function update() {
+        const now = new Date();
+        
+        const seconds = now.getSeconds();
+        const secondsDegrees = (seconds / 60) * 360 + 90;
+        secondHand.style.transform = `rotate(${secondsDegrees}deg)`; 
+        
+        const minutes = now.getMinutes();
+        const minuteDegrees = (minutes / 60) * 360 + 90;
+        console.log(minuteHand);
+        minuteHand.style.transform = `rotate(${minuteDegrees}deg)`; 
+      }
+
+      setInterval(update, 1000);

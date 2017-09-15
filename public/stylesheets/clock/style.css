@@ -1,0 +1,44 @@
+html {
+    background-color: blue;
+}
+
+body {
+    background-color: grey;
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.clock {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: 3px solid black;
+    margin: 0 auto;
+
+    box-shadow:
+  0 0 0 4px rgba(0,0,0,0.1),
+  inset 0 0 0 3px #EFEFEF,
+  inset 0 0 10px black,
+  0 0 10px rgba(0,0,0,0.2);
+}
+
+.clock-face {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    /*border: 3px solid yellow;*/
+    /*border-radius: 50%;*/
+}
+
+.hand {
+    position: absolute;
+    background-color: black;
+    top: 50%;
+    width: 50%;
+    height: 7px;
+    transform: rotate(90deg);
+    transition-timing-function: ease-in-out;
+    transform-origin: 100%;
+}

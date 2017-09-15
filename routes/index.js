@@ -8,7 +8,12 @@ router.get('/', function(req, res, next) {
 
 /* GET drum kit */
 router.get('/drumkit', function(req, res, next) {
-  res.render('drumkit', { title: 'Express' });
+  res.render('drumkit', { title: 'Drum Kit' });
+});
+
+/* GET clock */
+router.get('/clock', function(req, res, next) {
+  res.render('clock', { title: 'Clock' });
 });
 
 module.exports = router;
