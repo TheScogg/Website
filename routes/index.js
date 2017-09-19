@@ -16,4 +16,8 @@ router.get('/clock', function(req, res, next) {
   res.render('clock', { title: 'Clock' });
 });
 
+router.get('/pictorama', function(req, res, next) {
+  res.render('pictorama', { title: 'Pictorama'})
+});
+
 module.exports = router;
