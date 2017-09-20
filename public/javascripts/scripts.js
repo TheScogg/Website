@@ -27,4 +27,6 @@ $(document).ready(function () {
         function() {
             $(this).children().animate({opacity:'0'});
         });
+    
+
 }); 
