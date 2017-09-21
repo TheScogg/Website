@@ -10,6 +10,8 @@ var users = require('./routes/users');
 
 var app = express();
 
+var nodemailer = require('nodemailer');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -41,5 +43,34 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    secure: false,
+    port: 25,
+    auth: {
+        user: 'thescogg@gmail.com',
+        pass: 'Bjq03dX7xBg6fmpnR2Zg',
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+});
+
+let HelperOptions = {
+    from: '"Patrick Parker" <thescogg@gmail.com>',
+    to: 'thescogg@gmail.com',
+    subject: 'TheScogg.com Contact Submission',
+    text: 'Email Server Working'
+};
+
+transporter.sendMail(HelperOptions, (error, info) => {
+    if (error) {
+        return console.log(error);
+    }
+    
+    console.log("The message was sent");
+    console.log(info);
+}); 
 
 module.exports = app;
