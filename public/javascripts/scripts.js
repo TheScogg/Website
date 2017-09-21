@@ -23,10 +23,26 @@ $(document).ready(function () {
     $(".thumbnail").hover(function() {
             console.log("hover in")
             $(this).children(".thumbnailOverlay").animate({opacity:'1'});
-        }, 
+        },
         function() {
             $(this).children().animate({opacity:'0'});
         });
-    
 
-}); 
+    $(':submit').on('click', function () {
+        var message = "";
+        $.ajax({
+          url: '/sendMail',
+          data: {
+              name: 'thescogg@gmail.com',
+              email: 'Bjq03dX7xBg6fmpnR2Zg',
+              phone: '502-398-3480',
+              message: 'hello me'
+          },
+          method: "POST"
+        }).then(function (response) {
+          console.log(response);
+        }).catch(function (err) {
+          console.log(err);
+        });
+    });
+});
