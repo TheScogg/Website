@@ -37,10 +37,10 @@ router.post('/sendMail', function(req, res) {
   });
 
   let HelperOptions = {
-      from: '"Patrick Parker" <thescogg@gmail.com>',
+      from: '"TheScogg.com" <thescogg@gmail.com>',
       to: 'thescogg@gmail.com',
-      subject: 'TheScogg.com Contact Submission',
-      text: req.body.name + " " + req.body.email + " " + req.body.message
+      subject: 'TheScogg.com Contact',
+      text: 'Name: ' + req.body.name + "\nPhone: " + req.body.phone + "\nEmail: " + req.body.email + "\nMessage: " + req.body.message
   };
 
   transporter.sendMail(HelperOptions, (error, info) => {
@@ -48,8 +48,7 @@ router.post('/sendMail', function(req, res) {
           return console.log(error);
       }
 
-      console.log("The message was sent");
-      console.log(info);
+
   });
 });
 

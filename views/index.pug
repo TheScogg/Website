@@ -13,7 +13,7 @@ block content
           .col-md-8.my-auto.text-center
             h1.display-4(style='color: #ff3d00;') Aspiring Web Developer
             p.h2
-              | Background in Print 
+              | Background in Print
               br
               | & Graphic Design
             hr.my-4
@@ -44,7 +44,7 @@ block content
               p.lead
                 | Make music without ever leaving the comfort of your bed or computer chair!
               a.btn.btn-success.active(href='/drumkit', role='button', aria-pressed='true') See More!
-    
+
     // CONTACT ME
     .row
       #contact.col-md-10.mx-auto
@@ -53,8 +53,8 @@ block content
             <div class="col-md-12 text-center heading">
             <div><h1><em>Contact Me</em></h1></div>
             </div>
-          .col-md-6.my-auto
-              h1.display-4 Want to get in touch with me? 
+          .col-md-6.my-auto#contactText
+              h1.display-4 Want to get in touch with me?
               h4 Please feel out the form, and I will respond ASAP.
           .col-md-6
             form(action='mailto:thescogg@gmail.com', method='post', enctype='text/plain')
@@ -66,7 +66,7 @@ block content
                 input#InputEmail.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email')
               .form-group
                 label(for='InputPhone') Phone number
-                input#InputEmail.form-control(type='text', aria-describedby='emailHelp', placeholder='Enter phone number')
+                input#InputPhone.form-control(type='text', aria-describedby='emailHelp', placeholder='Enter phone number')
               .form-group
                 label(for='InputMessage') Your Message...
                 textarea#InputMessage.form-control(rows='3')
@@ -96,5 +96,3 @@ block content
           p.font-weight-bold.text-center TheScogg.com © 2017 All Rights Reserved
           p
   script(src='javascripts/scripts.js')
-  
-    

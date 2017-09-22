@@ -1,6 +1,8 @@
-body { 
+body {
   /* Override default Bootstrap white background */
-  background: #212121 !important;}
+  background: #212121 !important;
+      /*opacity: 0.5;*/
+}
 
 .navbar {
   background-color: #000000    !important;
@@ -93,16 +95,16 @@ hr {
   margin-top: 20px;
 }
 
-.thumbnail{ 
+.thumbnail{
   float: left;
   background-repeat: no-repeat;
   background-position: center;
-  -webkit-background-size: cover; 
-  -moz-background-size: cover; 
-  -o-background-size: cover; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   /* position: relative;  */
-  overflow: hidden; 
+  overflow: hidden;
   text-align: center;
   /* margin: 20px; */
   padding: 0;
@@ -112,10 +114,9 @@ hr {
   }
 
 .thumbnailOverlay {
-  height: 300px; 
+  height: 300px;
   background:rgba(0, 0, 0, 0.75);
   opacity: 0;
   color: white;
   justify-content: center;
 }
-

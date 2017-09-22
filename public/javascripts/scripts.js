@@ -1,7 +1,6 @@
 $(document).ready(function () {
-    console.log("javascript has been loaded");
 
-
+    // Automatic Page Scrolling on Link Click
     $( "#introLink" ).on( "click", function() {
         console.log("Intro Link");
         $('html, body').animate({
@@ -20,6 +19,7 @@ $(document).ready(function () {
             scrollTop: $("#contact").offset().top - $(".navbar").height()
         }, 2000);    });
 
+    // Overlay project information & link on top of thumbnail
     $(".thumbnail").hover(function() {
             console.log("hover in")
             $(this).children(".thumbnailOverlay").animate({opacity:'1'});
@@ -28,21 +28,45 @@ $(document).ready(function () {
             $(this).children().animate({opacity:'0'});
         });
 
-    $(':submit').on('click', function () {
-        var message = "";
-        $.ajax({
-          url: '/sendMail',
-          data: {
-              name: 'thescogg@gmail.com',
-              email: 'Bjq03dX7xBg6fmpnR2Zg',
-              phone: '502-398-3480',
-              message: 'hello me'
-          },
-          method: "POST"
-        }).then(function (response) {
-          console.log(response);
-        }).catch(function (err) {
-          console.log(err);
-        });
+
+    // Contact Me Submission Code
+
+
+    $(':submit').on('click', function(e) {
+        e.preventDefault();
+
+        function thankYouAnimation(promise) {
+            var contactText = [document.getElementById('contactText').childNodes];
+
+            $(contactText[0][0]).html("Thanks " + document.getElementById('InputName').value + "!");
+            $(contactText[0][1]).html("I will be in contact with you shortly.");
+
+        }
+
+        function ajaxRequest() {
+            $.ajax({
+            url: '/sendMail',
+            data: {
+                name: document.getElementById('InputName').value,
+                email: document.getElementById('InputEmail').value,
+                phone: document.getElementById('InputPhone').value,
+                message: document.getElementById('InputMessage').value
+            },
+            method: "POST"
+          }).then(function () {
+            // console.log("Then accessed");
+          })
+          .catch(function (err) {
+            console.log(err);
+          });
+        };
+
+        ajaxRequest();
+
+        thankYouAnimation();
+
+
     });
+
+
 });
