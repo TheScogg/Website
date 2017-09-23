@@ -63,7 +63,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#959595', end
 
 #footer-top .fa:hover{
   margin: 0 10px 0 10px;
-  font-size: 4em;
+  transform: scale(1.3);
+  /*font-size: 4em;*/
 }
 
 #footer-bottom {

@@ -24,21 +24,16 @@ router.get('/pictorama', function(req, res, next) {
 router.post('/sendMail', function(req, res) {
   console.log(req);
   let transporter = nodemailer.createTransport({
-      service: 'gmail',
-      secure: false,
-      port: 25,
+      service: "Zoho",
       auth: {
-          user: 'thescogg@gmail.com',
-          pass: 'Bjq03dX7xBg6fmpnR2Zg',
-      },
-      tls: {
-          rejectUnauthorized: false
+          user: 'james@thescogg.com',
+          pass: 'fogerty21',
       }
   });
 
   let HelperOptions = {
-      from: '"TheScogg.com" <thescogg@gmail.com>',
-      to: 'thescogg@gmail.com',
+      from: '"TheScogg.com" <james@thescogg.com>',
+      to: 'james@thescogg.com',
       subject: 'TheScogg.com Contact',
       text: 'Name: ' + req.body.name + "\nPhone: " + req.body.phone + "\nEmail: " + req.body.email + "\nMessage: " + req.body.message
   };
