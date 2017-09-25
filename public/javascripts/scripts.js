@@ -25,7 +25,7 @@ $(document).ready(function () {
             $(this).children(".thumbnailOverlay").animate({opacity:'1'});
         },
         function() {
-            $(this).children().animate({opacity:'0'});
+            $(this).children(".thumbnailOverlay").animate({opacity:'0'});
         });
 
 
@@ -33,14 +33,13 @@ $(document).ready(function () {
 
 
     $(':submit').on('click', function(e) {
-        e.preventDefault();
+        // e.preventDefault();
 
+        // Change message on left side of page to thank user for message;
         function thankYouAnimation(promise) {
             var contactText = [document.getElementById('contactText').childNodes];
-
             $(contactText[0][0]).html("Thanks " + document.getElementById('InputName').value + "!");
             $(contactText[0][1]).html("I will be in contact with you shortly.");
-
         }
 
         function ajaxRequest() {

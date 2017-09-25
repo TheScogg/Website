@@ -31,46 +31,47 @@ block content
               h1
                 em My Project Portfolio
           // LIFELOGS LINK
-          .col-md-6.col-10.thumbnail.mx-auto(style='background-image:url(../images/lifelogs.jpg);')
-            .col-md-12.thumbnailOverlay.my-auto
+          .col-md-5.col-10.thumbnail.mx-auto
+            img.img-fluid(src="./images/lifelogs.jpg")
+            .thumbnailOverlay.my-auto
               h1.display-4 lifelogs.com
               p.lead
                 | Log your day to day activities to discover what makes you happy.
-              a.btn.btn-success.active(href='http://lifelogs.herokuapp.com', role='button', aria-pressed='true') See More!
+              a.btn.btn-success.active(href='http://lifelogs.herokuapp.com', role='button', aria-pressed='true' target="_blank") See More!
+          
           // DRUM KIT
-          .col-md-5.col-10.thumbnail.mx-auto(style='background-image:url(../images/drumkit/Concert-Audience.jpg);')
+          .col-md-5.col-10.thumbnail.mx-auto
+            img.img-fluid(src="./images/drumkit/Concert-Audience.jpg")
             .col-md-12.thumbnailOverlay.my-auto
               h1.display-4 Drum Kit
               p.lead
                 | Make music without ever leaving the comfort of your bed or computer chair!
-              a.btn.btn-success.active(href='/drumkit', role='button', aria-pressed='true') See More!
+              a.btn.btn-success.active(href='/drumkit', role='button', aria-pressed='true' target="_blank") See More!
 
     // CONTACT ME
     .row
       #contact.col-md-10.mx-auto
         .row.contactRow
-          //
-            <div class="col-md-12 text-center heading">
-            <div><h1><em>Contact Me</em></h1></div>
-            </div>
-          .col-md-6.my-auto#contactText
-              h1.display-4 Want to get in touch with me?
-              h4 Please feel out the form, and I will respond ASAP.
-          .col-md-6
-            form(action='mailto:thescogg@gmail.com', method='post', enctype='text/plain')
-              .form-group
-                label(for='InputName') Name
-                input#InputName.form-control(type='text', aria-describedby='emailHelp', placeholder='Enter name')
-              .form-group
-                label(for='InputEmail') Email address
-                input#InputEmail.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email')
-              .form-group
-                label(for='InputPhone') Phone number
-                input#InputPhone.form-control(type='tel', aria-describedby='emailHelp', placeholder='Enter phone number')
-              .form-group
-                label(for='InputMessage') Your Message...
-                textarea#InputMessage.form-control(rows='3')
-              button.btn.btn-primary(type='submit') Submit
+            .col-md-6.my-auto#contactText
+                h1.display-4 Want to get in touch with me?
+                h4 Please feel out the form, and I will respond ASAP.
+            .col-md-6
+              form#contactForm(action='mailto:thescogg@gmail.com', method='post', enctype='text/plain')
+                .form-group
+                  label(for='InputName') Name
+                  input#InputName.form-control(type='text', aria-describedby='emailHelp', placeholder='Enter name' required)
+                .form-group
+                  label(for='InputEmail') Email address
+                  input#InputEmail.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email' required)
+                .form-group
+                  label(for='InputPhone') Phone number
+                  input#InputPhone.form-control(type='tel', aria-describedby='emailHelp', placeholder='Enter phone number')
+                .form-group
+                  label(for='InputMessage') Your Message...
+                  textarea#InputMessage.form-control(rows='3' required)
+                button.btn.btn-primary(type='submit') Submit
+              
+              
     // FOOTER
     footer
       .row
