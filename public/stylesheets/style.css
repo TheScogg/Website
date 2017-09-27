@@ -136,11 +136,14 @@ hr {
   height: 100%;
   justify-content: center;
   left: 0;
-  margin-bottom: 15px;
   /*opacity: 0;*/
   position: absolute;
   top: 0;
   -webkit-justify-content: center; /* Safari 6.1+ */
+}
+
+.form-overlay * {
+  margin-bottom: 20px;
 }
 
 /* UTILITY CLASSES */
