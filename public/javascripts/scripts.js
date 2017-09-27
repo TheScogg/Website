@@ -32,8 +32,28 @@ $(document).ready(function () {
     // Contact Me Submission Code
 
 
-    $(':submit').on('click', function(e) {
-        // e.preventDefault();
+    $('#submit').on('click', function(e) {
+
+
+        if (document.getElementById("contactForm").checkValidity()) {
+
+          $('.form-overlay').addClass('flexbox');
+
+          $('#confirm').on('click', function() {
+            console.log("confirmed click");
+            ajaxRequest();
+            thankYouAnimation();
+            $('.form-overlay').removeClass('flexbox');
+
+          });
+
+          // ***** FIND A WAY TO BREAK THE INCREMENTAL NATURE OF THIS
+          $('#cancel').on('click', function() {
+            $('.form-overlay').removeClass('flexbox');
+          });
+
+        };
+
 
         // Change message on left side of page to thank user for message;
         function thankYouAnimation(promise) {
@@ -60,9 +80,7 @@ $(document).ready(function () {
           });
         };
 
-        ajaxRequest();
 
-        thankYouAnimation();
 
 
     });

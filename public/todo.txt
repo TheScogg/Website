@@ -1,0 +1,3 @@
+hour tracker for gina
+confirm screen for contact me form
+make text fit mobile on project thumbnails

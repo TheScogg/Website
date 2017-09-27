@@ -31,7 +31,7 @@ block content
               h1
                 em My Project Portfolio
           // LIFELOGS LINK
-          .col-md-5.col-10.thumbnail.mx-auto
+          .col-md-5.col-11.thumbnail.mx-auto
             img.img-fluid(src="./images/lifelogs.jpg")
             .thumbnailOverlay.my-auto
               h1.display-4 lifelogs.com
@@ -40,7 +40,7 @@ block content
               a.btn.btn-success.active(href='http://lifelogs.herokuapp.com', role='button', aria-pressed='true' target="_blank") See More!
           
           // DRUM KIT
-          .col-md-5.col-10.thumbnail.mx-auto
+          .col-md-5.col-11.thumbnail.mx-auto
             img.img-fluid(src="./images/drumkit/Concert-Audience.jpg")
             .col-md-12.thumbnailOverlay.my-auto
               h1.display-4 Drum Kit
@@ -55,7 +55,7 @@ block content
             .col-md-6.my-auto#contactText
                 h1.display-4 Want to get in touch with me?
                 h4 Please feel out the form, and I will respond ASAP.
-            .col-md-6
+            .col-md-6.form
               form#contactForm(action='mailto:thescogg@gmail.com', method='post', enctype='text/plain')
                 .form-group
                   label(for='InputName') Name
@@ -69,7 +69,13 @@ block content
                 .form-group
                   label(for='InputMessage') Your Message...
                   textarea#InputMessage.form-control(rows='3' required)
-                button.btn.btn-primary(type='submit') Submit
+                button#submit.btn.btn-primary(type='submit') Submit
+              .col-md-12.form-overlay
+                h4 Please confirm your message...
+                a#confirm.btn.btn-primary.active(role='button', aria-pressed='true' target="_blank") Confirm
+                a#cancel.btn.btn-secondary.active(role='button', aria-pressed='true' target="_blank") Cancel
+                  
+
               
               
     // FOOTER
@@ -77,21 +83,17 @@ block content
       .row
         #footer-top.col-md-12.mx-auto
           .row
-            //- .col-md-6.mx-auto.my-auto
-            //-   p.h2.text-center About This Page
-            //-   p.font-weight-bold.text-center Made with love by James Scoggins
-            //-   p
             .col-md-6.mx-auto.my-auto
               p.h2.text-center Around the World
               ul.text-center
                 li
-                  a(href='https://www.linkedin.com/in/thescogg')
+                  a(href='https://www.linkedin.com/in/thescogg' target="_blank")
                     i.fa.fa-3x.fa-linkedin-square(aria-hidden='true')
                 li
-                  a(href='https://github.com/TheScogg')
+                  a(href='https://github.com/TheScogg' target="_blank")
                     i.fa.fa-3x.fa-github-square(aria-hidden='true')
                 li
-                  a(href='mailto:thescogg@gmail.com')
+                  a(href='mailto:thescogg@gmail.com' target="_blank")
                     i.fa.fa-3x.fa-envelope-square(aria-hidden='true')
         #footer-bottom.col-md-12.mx-auto
           p.font-weight-bold.text-center TheScogg.com © 2017 All Rights Reserved
