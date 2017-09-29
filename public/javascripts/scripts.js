@@ -58,12 +58,13 @@ $(document).ready(function () {
         // Change message on left side of page to thank user for message;
         function thankYouAnimation(promise) {
             var contactText = [document.getElementById('contactText').childNodes];
-            $(contactText[0][0]).html("Thanks " + document.getElementById('InputName').value + "!");
+            $(contactText[0][0]).html("Thanks " + document.getElementById('InputName').value.split(' ')[0] + "!");
             $(contactText[0][1]).html("I will be in contact with you shortly.");
+            console.log(document.getElementById('InputName').value.split(' '));
         }
 
         function ajaxRequest() {
-            $.ajax({
+            return $.ajax({
             url: '/sendMail',
             data: {
                 name: document.getElementById('InputName').value,
@@ -71,9 +72,13 @@ $(document).ready(function () {
                 phone: document.getElementById('InputPhone').value,
                 message: document.getElementById('InputMessage').value
             },
-            method: "POST"
-          }).then(function () {
-            // console.log("Then accessed");
+            method: "POST",
+            success: function(data, status, xhr) {
+
+            }, fail: function() {
+                console.log("failed");
+            }}).done(function () {
+            console.log("Then accessed");
           })
           .catch(function (err) {
             console.log(err);
