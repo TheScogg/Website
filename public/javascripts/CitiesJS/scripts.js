@@ -3,6 +3,7 @@ $( window ).on("load", function() {
     var canvas = document.getElementById('game');
     var ctx = canvas.getContext('2d');
     var map = new Map("Scoggytown", 20, 20, "oceanside", canvas);
+    var time;
 
     //ctx.fillRect(x, y, width, height)
 
@@ -14,11 +15,22 @@ $( window ).on("load", function() {
 
       console.log()
 
-      canvas.addEventListener('click', function() {
-        console.log("Hovering on canvas");
-      });
+
+
     }
 
+    function update() {
+            canvas.addEventListener("click", drawOutlineOnHover, false);
+
+            time = new Date();
+            // console.log(canvas);
+            // console.log(frame);
+            requestAnimationFrame(update);
+    }
+
+    // init();
     init();
+    requestAnimationFrame(update);
+
 
 });
