@@ -17,6 +17,11 @@ router.get('/clock', function(req, res, next) {
   res.render('clock', { title: 'Clock' });
 });
 
+/* GET clock */
+router.get('/game', function(req, res, next) {
+  res.render('game', { title: 'Game' });
+});
+
 router.get('/pictorama', function(req, res, next) {
   res.render('pictorama', { title: 'Pictorama'})
 });
