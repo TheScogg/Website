@@ -2,7 +2,7 @@ $( window ).on("load", function() {
 
     var canvas = document.getElementById('game');
     var ctx = canvas.getContext('2d');
-    var map = new Map("Scoggytown", 20, 20, "oceanside", canvas);
+    var map = new Map("Scoggytown", 20, 20, "oceanside", canvas, ctx);
     var time;
 
     //ctx.fillRect(x, y, width, height)
@@ -16,11 +16,16 @@ $( window ).on("load", function() {
       console.log()
 
 
+      var qqq = canvas.addEventListener("click", drawOutlineOnHover);
+
+      canvas.addEventListener("mousemove", function() {
+        var getCoords = drawOutlineOnHover.bind(this);
+        getCoords();
+      });
 
     }
 
     function update() {
-            canvas.addEventListener("click", drawOutlineOnHover, false);
 
             time = new Date();
             // console.log(canvas);

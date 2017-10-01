@@ -1,8 +1,9 @@
-function Map(name, height, width, terrain) {
+function Map(name, height, width, terrain, canvas) {
   this.name = name;
   this.height = height;
   this.width = width;
   this.terrain = terrain;
+  this.ctx = canvas.getContext('2d');
 }
 
 // Sets Canvas Window to entire viewable area
@@ -37,8 +38,6 @@ Map.prototype.populate = function(ctx) {
     }
   }
 
-
-
   // Fill in Graphics to canvas from data in mapArray
   for (var i = 0; i < this.width; i++) {
     for (var j = 0; j < this.height; j++) {
@@ -54,7 +53,11 @@ Map.prototype.populate = function(ctx) {
     }
   }
 
-  console.log(mapArray.tiles);
+  // console.log(mapArray.tiles);
+
+};
+
+Map.prototype.draw = function() {
 
 };
 
