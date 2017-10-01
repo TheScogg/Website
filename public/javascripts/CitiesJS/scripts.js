@@ -1,8 +1,7 @@
 $( window ).on("load", function() {
-
     var canvas = document.getElementById('game');
     var ctx = canvas.getContext('2d');
-    var map = new Map("Scoggytown", 20, 20, "oceanside", canvas, ctx);
+    var map = new Map("Scoggytown", 25, 20, "oceanside", canvas, ctx);
     var time;
 
     //ctx.fillRect(x, y, width, height)
@@ -36,6 +35,4 @@ $( window ).on("load", function() {
     // init();
     init();
     requestAnimationFrame(update);
-
-
 });

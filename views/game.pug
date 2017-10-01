@@ -11,6 +11,17 @@ html(lang='en')
     script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
+
+    //REQUIREJS
+    script(data-main="javascripts/config/config" src='/scripts/requirejs/require.js')
+
+    script.
+      require(['config'], function() {
+        require(['../sandbox/jqueryFile']);
+      });
+
+
+
     // CUSTOM CSS
     link(rel='stylesheet', href='stylesheets/clock/style.css')
   body
@@ -20,8 +31,9 @@ html(lang='en')
             .col-md-12
               canvas(id="game" width="800" height="800")
 
-script(src='javascripts/CitiesJS/gamemap.js')
-script(src='javascripts/CitiesJS/ui.js')
 
-script(src='javascripts/CitiesJS/mouseController.js')
-script(src='javascripts/CitiesJS/scripts.js')
+              //CITIESJS JavaScript Sources
+              script(src='javascripts/CitiesJS/gamemap.js')
+              script(src='javascripts/CitiesJS/ui.js')
+              script(src='javascripts/CitiesJS/mouseController.js')
+              script(src='javascripts/CitiesJS/scripts.js')
