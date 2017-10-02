@@ -1,6 +1,6 @@
-define('Map', function() {
+define(function() {
 
-  function Map(name, height, width, terrain, canvas) {
+  function Maps(name, height, width, terrain, canvas) {
     this.name = name;
     this.height = height;
     this.width = width;
@@ -9,19 +9,19 @@ define('Map', function() {
   }
 
   // Sets Canvas Window to entire viewable area
-  Map.prototype.setWindowDimensions = function(width, height, canvas) {
+  Maps.prototype.setWindowDimensions = function(width, height, canvas) {
     canvas.width = width;
     canvas.height = height;
     console.log(canvas.width, canvas.height);
   };
 
   // Returns basic details on Map
-  Map.prototype.getDetails = function() {
+  Maps.prototype.getDetails = function() {
     return (`Welcome to ${this.name} Height: ${this.height} Width: ${this.width} Terrain Type: ${this.terrain}`);
   };
 
   // Creates array of tiles and draws them to canvas
-  Map.prototype.populate = function(ctx) {
+  Maps.prototype.populate = function(ctx) {
     // Map Array to Hold data for every tile
     var mapArray = {
       terrain : this.terrain,
@@ -59,7 +59,7 @@ define('Map', function() {
 
   };
 
-  Map.prototype.draw = function() {
+  Maps.prototype.draw = function() {
 
   };
 
@@ -78,7 +78,7 @@ function getTileType() {
   return tileTypes[Math.floor(Math.random() * tileTypes.length)];
 };
 
-function loadImages() {
+Maps.loadImages = function () {
   return "HELLO";
 }
 
@@ -87,52 +87,5 @@ var images = [];
 var tileWidth = 40;
 var tileHeight = 40;
 
-return Map;
+return Maps;
 });
-
-
-
-
-// define('Human', [], function() {
-//
-//     // static private var
-//     var _numEyes = 2;
-//
-//     // constructor
-//     var Human = function(name) {
-//
-//         // public var
-//         this.name = name;
-//
-//         // pseudo-protected var
-//         this._age = 0;
-//     };
-//
-//     // instance method
-//     Human.prototype.walk = function() {
-//         return this.name + ' is walking';
-//     };
-//
-//     Human.prototype.setAge = function(value) {
-//         this._age = value;
-//     };
-//
-//     Human.prototype.getAge = function() {
-//         return this._age;
-//     };
-//
-//     Human.prototype.getNumEyes = function() {
-//         return _numEyes;
-//     };
-//
-//     // class static method
-//     Human.GET_TYPE = function() {
-//         return 'biped';
-//     };
-//
-//     // class static const
-//     Human.NUM_LEGS = 2;
-//
-//     return Human;
-//
-// });
