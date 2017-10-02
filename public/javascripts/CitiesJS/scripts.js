@@ -6,23 +6,34 @@ $( window ).on("load", function() {
 
     var audio = require(['../CitiesJS/sound/audio']);
 
-    require(['../CitiesJS/sound/audio'], function(Human){
-
-    console.log( Human.GET_TYPE() ); // biped
-    console.log( Human.NUM_LEGS ); // 2
-
-
-    var human = new Human('Peter');
-    console.log( human.name ); // Peter
-    console.log( human.walk() ); // Peter is walking
-    console.log( human.getAge() ); // 0
+    var map2 = require(['../CitiesJS/sound/audio'], function(Map){
+      // map = new Map("Scoggytown", 25, 20, "oceanside", canvas, ctx);
+      var map = new Map("Scoggytown", 25, 20, "oceanside", canvas, ctx);
 
 
 
-});
+    });
 
     //LEARN requirejs
+    require(['Human', 'John'], function(Human, John){
 
+        console.log( Human.GET_TYPE() ); // biped
+        console.log( Human.NUM_LEGS ); // 2
+
+
+        var human = new Human('Peter');
+        console.log( human.name ); // Peter
+        console.log( human.walk() ); // Peter is walking
+        console.log( human.getAge() ); // 0
+
+
+        var john = new John();
+        console.log( john.name ); // John
+        console.log( john.walk() ); // John is walking quickly
+        console.log( john.getAge() ); // 28
+        console.log( john.getNumEyes() ); // 2
+
+    });
 
 
 

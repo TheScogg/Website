@@ -1,3 +1,4 @@
+// define('Map', function() {
 
   function Map(name, height, width, terrain, canvas) {
     this.name = name;
@@ -85,3 +86,6 @@ var imgURLs = [];
 var images = [];
 var tileWidth = 40;
 var tileHeight = 40;
+
+// return Map;
+// });

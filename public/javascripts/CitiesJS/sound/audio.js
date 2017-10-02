@@ -1,43 +1,138 @@
-define(function() {
+define('Map', function() {
 
-    // static private var
-    var _numEyes = 2;
+  function Map(name, height, width, terrain, canvas) {
+    this.name = name;
+    this.height = height;
+    this.width = width;
+    this.terrain = terrain;
+    this.ctx = canvas.getContext('2d');
+  }
 
-    // constructor
-    var Human = function(name) {
+  // Sets Canvas Window to entire viewable area
+  Map.prototype.setWindowDimensions = function(width, height, canvas) {
+    canvas.width = width;
+    canvas.height = height;
+    console.log(canvas.width, canvas.height);
+  };
 
-        // public var
-        this.name = name;
+  // Returns basic details on Map
+  Map.prototype.getDetails = function() {
+    return (`Welcome to ${this.name} Height: ${this.height} Width: ${this.width} Terrain Type: ${this.terrain}`);
+  };
 
-        // pseudo-protected var
-        this._age = 0;
+  // Creates array of tiles and draws them to canvas
+  Map.prototype.populate = function(ctx) {
+    // Map Array to Hold data for every tile
+    var mapArray = {
+      terrain : this.terrain,
+      tiles : []
     };
 
-    // instance method
-    Human.prototype.walk = function() {
-        return this.name + ' is walking';
-    };
+    // Pushing procederually generated tiles to mapArray
+    for (var i = 0; i < this.width; i++) {
+      for (var j = 0; j < this.height; j++) {
+        mapArray.tiles.push({
+          type: getTileType(),
+          building: null,
+          coordsX: i,
+          coordsY: j
+        });
+      }
+    }
 
-    Human.prototype.setAge = function(value) {
-        this._age = value;
-    };
+    // Fill in Graphics to canvas from data in mapArray
+    for (var i = 0; i < this.width; i++) {
+      for (var j = 0; j < this.height; j++) {
 
-    Human.prototype.getAge = function() {
-        return this._age;
-    };
+        // Gets color pertaining to tile type
+        ctx.fillStyle = mapArray.tiles[i + j * this.width].type.img;
+        ctx.fillRect(i * tileWidth, j * tileHeight, tileWidth, tileHeight);
 
-    Human.prototype.getNumEyes = function() {
-        return _numEyes;
-    };
+        // Print Coordinates for Debugging & Setup
+        ctx.fillStyle="#000000";
+        ctx.fillText(`${i}, ${j}`, i * tileWidth + 10, j * tileHeight + 20);
 
-    // class static method
-    Human.GET_TYPE = function() {
-        return 'biped';
-    };
+      }
+    }
 
-    // class static const
-    Human.NUM_LEGS = 2;
+    // console.log(mapArray.tiles);
 
-    return Human;
+  };
 
+  Map.prototype.draw = function() {
+
+  };
+
+
+function getTileType() {
+  const tileTypes = [{
+    type: "grass",
+    img: "#00ff00"
+  },
+    {type: "water",
+    img: "#0000ff"}
+    ,
+    {type: "dirt",
+    img: "#f4a460"}
+  ];
+  return tileTypes[Math.floor(Math.random() * tileTypes.length)];
+};
+
+function loadImages() {
+  return "HELLO";
+}
+
+var imgURLs = [];
+var images = [];
+var tileWidth = 40;
+var tileHeight = 40;
+
+return Map;
 });
+
+
+
+
+// define('Human', [], function() {
+//
+//     // static private var
+//     var _numEyes = 2;
+//
+//     // constructor
+//     var Human = function(name) {
+//
+//         // public var
+//         this.name = name;
+//
+//         // pseudo-protected var
+//         this._age = 0;
+//     };
+//
+//     // instance method
+//     Human.prototype.walk = function() {
+//         return this.name + ' is walking';
+//     };
+//
+//     Human.prototype.setAge = function(value) {
+//         this._age = value;
+//     };
+//
+//     Human.prototype.getAge = function() {
+//         return this._age;
+//     };
+//
+//     Human.prototype.getNumEyes = function() {
+//         return _numEyes;
+//     };
+//
+//     // class static method
+//     Human.GET_TYPE = function() {
+//         return 'biped';
+//     };
+//
+//     // class static const
+//     Human.NUM_LEGS = 2;
+//
+//     return Human;
+//
+// });
