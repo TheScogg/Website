@@ -5,6 +5,6 @@ requirejs.config({
     extCore: 'ext-core',
     jquery: ['https://code.jquery.com/jquery-3.1.1.slim.min'],
     mootools: 'mootols.min',
-    methods: '../sandbox/methods'
+    audio: '../CitiesJS/sound/audio'
   }
 });

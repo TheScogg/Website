@@ -1,4 +1,5 @@
 define(['jquery','methods'], function ($, methods) {
   // THIS WORKS
-  // methods.showAlert('I was clicked');
+  var methods = require('methods');
+  console.log(methods.showAlert("HEY THERE!!!"));
 });

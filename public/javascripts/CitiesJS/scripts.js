@@ -4,7 +4,27 @@ $( window ).on("load", function() {
     var map = new Map("Scoggytown", 25, 20, "oceanside", canvas, ctx);
     var time;
 
-    //ctx.fillRect(x, y, width, height)
+    var audio = require(['../CitiesJS/sound/audio']);
+
+    require(['../CitiesJS/sound/audio'], function(Human){
+
+    console.log( Human.GET_TYPE() ); // biped
+    console.log( Human.NUM_LEGS ); // 2
+
+
+    var human = new Human('Peter');
+    console.log( human.name ); // Peter
+    console.log( human.walk() ); // Peter is walking
+    console.log( human.getAge() ); // 0
+
+
+
+});
+
+    //LEARN requirejs
+
+
+
 
 
     function init() {
